@@ -1,0 +1,94 @@
+<html>
+	<head>
+			<title> Rating App by Kamal Sir </title>
+			<style>
+				* { font-size: 40px; }
+				body { background-color:azure; }			
+				.btn { background-color:red;  color:white;  width:20%;  margin-left:2%; border-radius:20px; }
+				.btn:hover { color:yellow; }
+			</style>
+	</head>
+	<body>
+		<center>
+			<h1> Rating App </h1>
+			<form onsubmit="show()"> 
+				<input type="number"	id="rating"	placeholder="enter rating between 1 to 5"  
+				style="width:600px;"/>
+				<br/><br/>
+				<input type="submit" value="M1"	class="btn"/>
+				<input type="submit" value="M2" class="btn"/>
+				<input type="submit" value="M3" class="btn"/>
+			</form>
+				<h2 id="msg" />
+
+			<script>
+				function show()
+				{
+					event.preventDefault();
+					let rating = document.getElementById("rating");
+					let msg = document.getElementById("msg");
+
+					if (rating.value === "")
+					{
+						alert("rating is empty");
+						msg.innerHTML = "";
+						rating.focus();
+						return;
+					}
+					
+					let r = parseInt(rating.value);
+
+					if ( (r < 1) || (r > 5))
+					{
+						alert("rating shud be between 1 to 5");
+						msg.innerHTML = "";
+						rating.focus();
+						return;
+					}
+
+					let action = document.activeElement.value;
+					let ans = "";
+
+					if (action === "M1")
+					{
+						if (r === 5)		ans = "M1 --> Excellent";
+						else if (r === 4)	ans = "M1 --> Excellent";
+						else if (r === 3)	ans = "M1 --> Ok";
+						else if (r === 2)	ans = "M1 --> Ok";
+						else 			ans = "M1 --> Poor";
+						msg.innerHTML = ans;
+					}
+					else if (action === "M2")
+					{
+						if ( (r === 5) || (r === 4))			ans = "M2 --> Excellent";
+						else if ( (r === 3) || ( r===2) )		ans = "M2 --> Ok";
+						else								ans = "M2 --> Poor";
+						msg.innerHTML = ans;
+					}
+					else if (action === "M3")
+					{
+
+
+					}
+		
+
+
+
+
+
+				}			
+			</script>
+		</center>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
